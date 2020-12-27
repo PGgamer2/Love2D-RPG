@@ -1,3 +1,8 @@
+### Visual Studio and VS Code ###
+.vs/*
+.vscode/*
+*.code-workspace
+
 ### Linux ###
 *~
 
@@ -41,10 +46,6 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-
-### vscode ###
-.vscode/*
-*.code-workspace
 
 ### Windows ###
 # Windows thumbnail cache files
