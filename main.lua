@@ -227,52 +227,46 @@ function love.draw()
     if player.direction == 0 then
       if controls.down.held == 0 then
         playerCurrentSprite = assets.player.down.idle
-        isMoving = false
       else
         playerCurrentSprite = assets.player.down.walk
         playerCurrentAnim = playerAnimations.down
-        isMoving = true
       end
     end
     if player.direction == 1 then
       if controls.right.held == 0 then
         playerCurrentSprite = assets.player.right.idle
-        isMoving = false
       else
         playerCurrentSprite = assets.player.right.walk
         playerCurrentAnim = playerAnimations.right
-        isMoving = true
       end
     end
     if player.direction == 2 then
       if controls.up.held == 0 then
         playerCurrentSprite = assets.player.up.idle
-        isMoving = false
       else
         playerCurrentSprite = assets.player.up.walk
         playerCurrentAnim = playerAnimations.up
-        isMoving = true
       end
     end
     if player.direction == 3 then
       if controls.left.held == 0 then
         playerCurrentSprite = assets.player.left.idle
-        isMoving = false
       else
         playerCurrentSprite = assets.player.left.walk
         playerCurrentAnim = playerAnimations.left
-        isMoving = true
       end
     end
 
-    if isMoving == true then
+    if playerCurrentAnim ~= nil then
       local animWidth, animHeight = playerCurrentAnim:getDimensions()
       playerCurrentAnim:draw(playerCurrentSprite, playerXmiddle - (animWidth / 2), playerYmiddle - (animHeight / 2))
+      player.isMoving = true
     else
       love.graphics.draw(playerCurrentSprite, playerXmiddle - (playerCurrentSprite:getWidth() / 2), playerYmiddle - (playerCurrentSprite:getHeight() / 2))
       for _, animName in pairs(playerAnimations) do
         animName:gotoFrame(1)
       end
+      player.isMoving = false
     end
   end
 
