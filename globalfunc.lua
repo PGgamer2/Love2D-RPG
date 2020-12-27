@@ -1,7 +1,7 @@
 --- Useful functions for level creation.
 -- Some of the functions were inspired from <a href="https://love2d.org/forums/viewtopic.php?f=4&t=78729&p=173524#p173524">kikito</a>.
 
-blocks = {} -- In this table we store every item of the level except the player.
+blocks = {} -- In this table we store every object of the level except the player.
 
 --- Check if table has value.
 -- @param tab Table
@@ -31,16 +31,16 @@ function cropImage(imgpath, cropX, cropY, cropWidth, cropHeight)
   return love.graphics.newImage(cropped)
 end
 
---- Add item to the current level.
--- @param id The ID that we will use to search the item
+--- Add object to the current level.
+-- @param id The ID that we will use to search the object
 -- @param x X coordinates
 -- @param y Y coordinates
 -- @param w Width
 -- @param h Height
--- @param drawable Sprite that will be used for the item
+-- @param drawable Sprite that will be used for the object
 -- @param collidable Collide with player (default: true)
--- @param execOnInteract Function to execute when player interacts with the item
--- @return Item that has been created.
+-- @param execOnInteract Function to execute when player interacts with the object
+-- @return Object that has been created.
 function addBlock(id,x,y,w,h,drawable,collidable,execOnInteract)
   if collidable == nil then collidable = true end
 
@@ -53,15 +53,15 @@ function addBlock(id,x,y,w,h,drawable,collidable,execOnInteract)
   return blocks[#blocks]
 end
 
---- Modify item by ID.
--- @param id The ID that we will use to search the item
+--- Modify object by ID.
+-- @param id The ID that we will use to search the object
 -- @param x X coordinates
 -- @param y Y coordinates
 -- @param w Width
 -- @param h Height
--- @param drawable Sprite that will be used for the item
+-- @param drawable Sprite that will be used for the object
 -- @param collidable Collide with player (default: true)
--- @param execOnInteract Function to execute when player interacts with the item
+-- @param execOnInteract Function to execute when player interacts with the object
 function updateBlock(id,x,y,w,h,drawable,collidable,execOnInteract)
   for _,block in ipairs(blocks) do
     if block.id == id then
@@ -91,14 +91,14 @@ function updateBlock(id,x,y,w,h,drawable,collidable,execOnInteract)
   end
 end
 
---- Move item by ID.
--- @param id The ID that we will use to search the item
+--- Move object by ID.
+-- @param id The ID that we will use to search the object
 -- @param goalx Target position in X coordinates
 -- @param goaly Target position in Y coordinates
 -- @return New X value.
 -- @return New Y value.
--- @return Items that are colliding.
--- @return Number of items that collided.
+-- @return Objects that are colliding.
+-- @return Number of objects that collided.
 function moveBlock(id, goalx, goaly)
   for _,block in ipairs(blocks) do
     if block.id == id then
@@ -112,8 +112,8 @@ function moveBlock(id, goalx, goaly)
   end
 end
 
---- Remove item by ID.
--- @param id The ID that we will use to search the item
+--- Remove object by ID.
+-- @param id The ID that we will use to search the object
 function removeBlock(id)
   for i, block in ipairs(blocks) do
     if block.id == id then
@@ -123,7 +123,7 @@ function removeBlock(id)
   end
 end
 
---- Draw every item of the level.
+--- Draw every object of the level.
 -- Put this inside love.draw()
 function drawBlocks()
   for _,block in ipairs(blocks) do
@@ -131,9 +131,9 @@ function drawBlocks()
   end
 end
 
---- Search level item by ID.
+--- Search level object by ID.
 -- @param id The ID used for the search
--- @return The item you were searching. Returns nil if the item doesn't exist.
+-- @return The object you were searching. Returns nil if the object doesn't exist.
 function searchByID(id)
   for _,block in ipairs(blocks) do
     if block.id == id then

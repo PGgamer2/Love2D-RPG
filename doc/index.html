@@ -60,27 +60,27 @@
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#addBlock">addBlock (id, x, y, w, h, drawable, collidable, execOnInteract)</a></td>
-	<td class="summary">Add item to the current level.</td>
+	<td class="summary">Add object to the current level.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#updateBlock">updateBlock (id, x, y, w, h, drawable, collidable, execOnInteract)</a></td>
-	<td class="summary">Modify item by ID.</td>
+	<td class="summary">Modify object by ID.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#moveBlock">moveBlock (id, goalx, goaly)</a></td>
-	<td class="summary">Move item by ID.</td>
+	<td class="summary">Move object by ID.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#removeBlock">removeBlock (id)</a></td>
-	<td class="summary">Remove item by ID.</td>
+	<td class="summary">Remove object by ID.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#drawBlocks">drawBlocks ()</a></td>
-	<td class="summary">Draw every item of the level.</td>
+	<td class="summary">Draw every object of the level.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#searchByID">searchByID (id)</a></td>
-	<td class="summary">Search level item by ID.</td>
+	<td class="summary">Search level object by ID.</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#SetPlayerDefaultSettings">SetPlayerDefaultSettings ()</a></td>
@@ -170,13 +170,13 @@
     <strong>addBlock (id, x, y, w, h, drawable, collidable, execOnInteract)</strong>
     </dt>
     <dd>
-    Add item to the current level.
+    Add object to the current level.
 
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">id</span>
-         The ID that we will use to search the item
+         The ID that we will use to search the object
         </li>
         <li><span class="parameter">x</span>
          X coordinates
@@ -191,20 +191,20 @@
          Height
         </li>
         <li><span class="parameter">drawable</span>
-         Sprite that will be used for the item
+         Sprite that will be used for the object
         </li>
         <li><span class="parameter">collidable</span>
          Collide with player (default: true)
         </li>
         <li><span class="parameter">execOnInteract</span>
-         Function to execute when player interacts with the item
+         Function to execute when player interacts with the object
         </li>
     </ul>
 
     <h3>Returns:</h3>
     <ol>
 
-        Item that has been created.
+        Object that has been created.
     </ol>
 
 
@@ -216,13 +216,13 @@
     <strong>updateBlock (id, x, y, w, h, drawable, collidable, execOnInteract)</strong>
     </dt>
     <dd>
-    Modify item by ID.
+    Modify object by ID.
 
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">id</span>
-         The ID that we will use to search the item
+         The ID that we will use to search the object
         </li>
         <li><span class="parameter">x</span>
          X coordinates
@@ -237,13 +237,13 @@
          Height
         </li>
         <li><span class="parameter">drawable</span>
-         Sprite that will be used for the item
+         Sprite that will be used for the object
         </li>
         <li><span class="parameter">collidable</span>
          Collide with player (default: true)
         </li>
         <li><span class="parameter">execOnInteract</span>
-         Function to execute when player interacts with the item
+         Function to execute when player interacts with the object
         </li>
     </ul>
 
@@ -257,13 +257,13 @@
     <strong>moveBlock (id, goalx, goaly)</strong>
     </dt>
     <dd>
-    Move item by ID.
+    Move object by ID.
 
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">id</span>
-         The ID that we will use to search the item
+         The ID that we will use to search the object
         </li>
         <li><span class="parameter">goalx</span>
          Target position in X coordinates
@@ -280,9 +280,9 @@
         <li>
         New Y value.</li>
         <li>
-        Items that are colliding.</li>
+        Objects that are colliding.</li>
         <li>
-        Number of items that collided.</li>
+        Number of objects that collided.</li>
     </ol>
 
 
@@ -294,13 +294,13 @@
     <strong>removeBlock (id)</strong>
     </dt>
     <dd>
-    Remove item by ID.
+    Remove object by ID.
 
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">id</span>
-         The ID that we will use to search the item
+         The ID that we will use to search the object
         </li>
     </ul>
 
@@ -314,7 +314,7 @@
     <strong>drawBlocks ()</strong>
     </dt>
     <dd>
-    Draw every item of the level.
+    Draw every object of the level.
  Put this inside love.draw()
 
 
@@ -329,7 +329,7 @@
     <strong>searchByID (id)</strong>
     </dt>
     <dd>
-    Search level item by ID.
+    Search level object by ID.
 
 
     <h3>Parameters:</h3>
@@ -342,7 +342,7 @@
     <h3>Returns:</h3>
     <ol>
 
-        The item you were searching. Returns nil if the item doesn't exist.
+        The object you were searching. Returns nil if the object doesn't exist.
     </ol>
 
 
@@ -397,7 +397,7 @@
 </div> <!-- id="main" -->
 <div id="about">
 <i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
-<i style="float:right;">Last updated 2020-12-27 18:26:01 </i>
+<i style="float:right;">Last updated 2020-12-27 21:10:16 </i>
 </div> <!-- id="about" -->
 </div> <!-- id="container" -->
 </body>
