@@ -2,8 +2,8 @@
 A RPG-Styled game template made with [Love2D](https://love2d.org/)
 
 Used libraries:
-* [bump.lua](https://github.com/kikito/bump.lua).
-* [hump.camera](https://hump.readthedocs.io/en/latest/camera.html).
+* [bump.lua](https://github.com/kikito/bump.lua)
+* [hump.camera](https://hump.readthedocs.io/en/latest/camera.html)
 * [anim8](https://github.com/kikito/anim8)
 * [catui](https://github.com/wilhantian/catui)
 
