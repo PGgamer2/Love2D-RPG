@@ -1,0 +1,404 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>ldoc</h1>
+
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><strong>globalfunc</strong></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>globalfunc</code></h1>
+<p>Useful functions for level creation.</p>
+<p>
+ Some of the functions were inspired from <a href="https://love2d.org/forums/viewtopic.php?f=4&t=78729&p=173524#p173524">kikito</a>.</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#hasValue">hasValue (tab, val)</a></td>
+	<td class="summary">Check if table has value.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#cropImage">cropImage (imgpath, cropX, cropY, cropWidth, cropHeight)</a></td>
+	<td class="summary">Crop images.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#addBlock">addBlock (id, x, y, w, h, drawable, collidable, execOnInteract)</a></td>
+	<td class="summary">Add item to the current level.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#updateBlock">updateBlock (id, x, y, w, h, drawable, collidable, execOnInteract)</a></td>
+	<td class="summary">Modify item by ID.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#moveBlock">moveBlock (id, goalx, goaly)</a></td>
+	<td class="summary">Move item by ID.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#removeBlock">removeBlock (id)</a></td>
+	<td class="summary">Remove item by ID.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#drawBlocks">drawBlocks ()</a></td>
+	<td class="summary">Draw every item of the level.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#searchByID">searchByID (id)</a></td>
+	<td class="summary">Search level item by ID.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#SetPlayerDefaultSettings">SetPlayerDefaultSettings ()</a></td>
+	<td class="summary">Set player settings to the default ones.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#LoadLevel">LoadLevel (lvl)</a></td>
+	<td class="summary">Load levels from lua files.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "hasValue"></a>
+    <strong>hasValue (tab, val)</strong>
+    </dt>
+    <dd>
+    Check if table has value.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">tab</span>
+         Table
+        </li>
+        <li><span class="parameter">val</span>
+         Value
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Boolean.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "cropImage"></a>
+    <strong>cropImage (imgpath, cropX, cropY, cropWidth, cropHeight)</strong>
+    </dt>
+    <dd>
+    Crop images.
+ I'm using this instead of Love2D quads.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">imgpath</span>
+         Path of the image
+        </li>
+        <li><span class="parameter">cropX</span>
+         X position where we'll start to crop the image (in pixels)
+        </li>
+        <li><span class="parameter">cropY</span>
+         Y position where we'll start to crop the image (in pixels)
+        </li>
+        <li><span class="parameter">cropWidth</span>
+         Width of the cropped image (in pixels)
+        </li>
+        <li><span class="parameter">cropHeight</span>
+         Height of the cropped image (in pixels)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Cropped image.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "addBlock"></a>
+    <strong>addBlock (id, x, y, w, h, drawable, collidable, execOnInteract)</strong>
+    </dt>
+    <dd>
+    Add item to the current level.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">id</span>
+         The ID that we will use to search the item
+        </li>
+        <li><span class="parameter">x</span>
+         X coordinates
+        </li>
+        <li><span class="parameter">y</span>
+         Y coordinates
+        </li>
+        <li><span class="parameter">w</span>
+         Width
+        </li>
+        <li><span class="parameter">h</span>
+         Height
+        </li>
+        <li><span class="parameter">drawable</span>
+         Sprite that will be used for the item
+        </li>
+        <li><span class="parameter">collidable</span>
+         Collide with player (default: true)
+        </li>
+        <li><span class="parameter">execOnInteract</span>
+         Function to execute when player interacts with the item
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Item that has been created.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "updateBlock"></a>
+    <strong>updateBlock (id, x, y, w, h, drawable, collidable, execOnInteract)</strong>
+    </dt>
+    <dd>
+    Modify item by ID.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">id</span>
+         The ID that we will use to search the item
+        </li>
+        <li><span class="parameter">x</span>
+         X coordinates
+        </li>
+        <li><span class="parameter">y</span>
+         Y coordinates
+        </li>
+        <li><span class="parameter">w</span>
+         Width
+        </li>
+        <li><span class="parameter">h</span>
+         Height
+        </li>
+        <li><span class="parameter">drawable</span>
+         Sprite that will be used for the item
+        </li>
+        <li><span class="parameter">collidable</span>
+         Collide with player (default: true)
+        </li>
+        <li><span class="parameter">execOnInteract</span>
+         Function to execute when player interacts with the item
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "moveBlock"></a>
+    <strong>moveBlock (id, goalx, goaly)</strong>
+    </dt>
+    <dd>
+    Move item by ID.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">id</span>
+         The ID that we will use to search the item
+        </li>
+        <li><span class="parameter">goalx</span>
+         Target position in X coordinates
+        </li>
+        <li><span class="parameter">goaly</span>
+         Target position in Y coordinates
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+        New X value.</li>
+        <li>
+        New Y value.</li>
+        <li>
+        Items that are colliding.</li>
+        <li>
+        Number of items that collided.</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "removeBlock"></a>
+    <strong>removeBlock (id)</strong>
+    </dt>
+    <dd>
+    Remove item by ID.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">id</span>
+         The ID that we will use to search the item
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "drawBlocks"></a>
+    <strong>drawBlocks ()</strong>
+    </dt>
+    <dd>
+    Draw every item of the level.
+ Put this inside love.draw()
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "searchByID"></a>
+    <strong>searchByID (id)</strong>
+    </dt>
+    <dd>
+    Search level item by ID.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">id</span>
+         The ID used for the search
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The item you were searching. Returns nil if the item doesn't exist.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "SetPlayerDefaultSettings"></a>
+    <strong>SetPlayerDefaultSettings ()</strong>
+    </dt>
+    <dd>
+    Set player settings to the default ones.
+ The player will be: <ul><li>Able to move</li><li>Able to interact</li><li>Able to open the inventory</li><li>Able to open the menu</li><li>Visible</li></ul>
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "LoadLevel"></a>
+    <strong>LoadLevel (lvl)</strong>
+    </dt>
+    <dd>
+    Load levels from lua files.
+ Inside the level file put a load() and an update(dt) function
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">lvl</span>
+         Lua file to load
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Level functions.
+    </ol>
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2020-12-27 18:26:01 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
