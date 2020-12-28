@@ -38,13 +38,15 @@ end
 -- @param w Width
 -- @param h Height
 -- @param drawable Sprite that will be used for the object
+-- @param layer The layer where the object needs to be. The player is between the third and the fourth layer
 -- @param collidable Collide with player (default: true)
 -- @param execOnInteract Function to execute when player interacts with the object
 -- @return Object that has been created.
-function addBlock(id,x,y,w,h,drawable,collidable,execOnInteract)
+function addBlock(id,x,y,w,h,drawable,layer,collidable,execOnInteract)
+  if layer == nil then layer = 1 end
   if collidable == nil then collidable = true end
 
-  local block = {id=id,x=x,y=y,w=w,h=h,drawable=drawable,collidable=collidable,execOnInteract=execOnInteract}
+  local block = {id=id,x=x,y=y,w=w,h=h,drawable=drawable,layer=layer,collidable=collidable,execOnInteract=execOnInteract}
   blocks[#blocks+1] = block
   if collidable == true then
     world:add(block, x,y,w,h)
@@ -60,15 +62,18 @@ end
 -- @param w Width
 -- @param h Height
 -- @param drawable Sprite that will be used for the object
+-- @param layer The layer where the object needs to be. The player is between the third and the fourth layer
 -- @param collidable Collide with player (default: true)
 -- @param execOnInteract Function to execute when player interacts with the object
-function updateBlock(id,x,y,w,h,drawable,collidable,execOnInteract)
+function updateBlock(id,x,y,w,h,drawable,layer,collidable,execOnInteract)
   for _,block in ipairs(blocks) do
     if block.id == id then
-      block.x, block.y = x, y
+      if x ~= nil then block.x = x end
+      if y ~= nil then block.y = y end
       if w ~= nil then block.w = w end
       if h ~= nil then block.h = h end
       if drawable ~= nil then block.drawable = drawable end
+      if layer ~= nil then block.layer = layer end
 
       if collidable ~= nil then
         if block.collidable == true and collidable == false then
@@ -125,9 +130,12 @@ end
 
 --- Draw every object of the level.
 -- Put this inside love.draw()
-function drawBlocks()
+-- @param layer The layer you want to draw. It will draw everything if the parameter is nil
+function drawBlocks(layer)
   for _,block in ipairs(blocks) do
-    love.graphics.draw(block.drawable, block.x, block.y, 0, block.w / block.drawable:getWidth(), block.h / block.drawable:getHeight())
+    if (layer ~= nil and layer == block.layer) or layer == nil then
+      love.graphics.draw(block.drawable, block.x, block.y, 0, block.w / block.drawable:getWidth(), block.h / block.drawable:getHeight())
+    end
   end
 end
 

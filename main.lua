@@ -1,4 +1,4 @@
--- Main script
+--- Main script
 DEBUG = false
 
 -- Libraries init
@@ -31,9 +31,9 @@ playerAnimations = {up    = anim8.newAnimation(anim8.newGrid(64, 64, assets.play
 controls = { up = { keys = {"w", "up"}, held = 0}, down = { keys = {"s", "down"}, held = 0},
              left = { keys = {"a", "left"}, held = 0}, right = { keys = {"d", "right"}, held = 0},
              inventory = { keys = {"i", "c"}, held = 0}, menu = { keys = {"escape", "p"}, held = 0},
-             attack = { keys = {"x", "z", "f"}, held = 0 --[[ Attack system TODO ]]}, interact = { keys = {"e", "return"}, held = 0} }
+             attack = { keys = {"x", "z", "f", "space"}, held = 0 --[[ Attack system TODO ]]}, interact = { keys = {"e", "return"}, held = 0} }
 
--- Player movements
+--- Player movements
 local function updatePlayer(dt)
   if player.canMove == true then
     -- Vertical movements
@@ -80,7 +80,7 @@ local function updatePlayer(dt)
   end
 end
 
--- Execute on start
+--- Execute on start
 function love.load(arg)
   min_dt = 1/60 -- FPS amount we want
   next_time = love.timer.getTime()
@@ -101,7 +101,7 @@ function love.load(arg)
   end)
 end
 
--- Execute every frame
+--- Execute every frame
 function love.update(dt)
   next_time = next_time + min_dt
 
@@ -120,7 +120,7 @@ function love.update(dt)
   end
 end
 
--- Detect keypress
+--- Detect key press
 function love.keypressed(keypressed, scancode, isrepeat)
   -- Toggle debug mode if you press \ or del
   if keypressed == "\\" or keypressed == "delete" then
@@ -194,6 +194,7 @@ function love.keypressed(keypressed, scancode, isrepeat)
   uimgr:keyDown(keypressed, scancode, isrepeat)
 end
 
+--- Detect key release
 function love.keyreleased(keyreleased)
 	-- Reset held counter when key is released
 	for _, button in pairs(controls) do
@@ -205,7 +206,7 @@ function love.keyreleased(keyreleased)
   uimgr:keyUp(keyreleased)
 end
 
--- Draw graphics
+--- Draw graphics
 function love.draw()
 	love.graphics.setColor(255, 255, 255)
 
@@ -213,7 +214,10 @@ function love.draw()
 	local ratio = math.min(love.graphics.getWidth() / 800, love.graphics.getHeight() / 600)
 	love.graphics.scale(ratio, ratio) -- GFX scaling
 
-  drawBlocks() -- Draw world objects
+  -- Draw first, second and third layer of objects
+  drawBlocks(1)
+  drawBlocks(2)
+  drawBlocks(3)
 
   if player.visible == true then
     -- Draw player
@@ -225,32 +229,28 @@ function love.draw()
     local playerCurrentAnim
 
     if player.direction == 0 then
-      if controls.down.held == 0 then
-        playerCurrentSprite = assets.player.down.idle
+      if controls.down.held == 0 then playerCurrentSprite = assets.player.down.idle
       else
         playerCurrentSprite = assets.player.down.walk
         playerCurrentAnim = playerAnimations.down
       end
     end
     if player.direction == 1 then
-      if controls.right.held == 0 then
-        playerCurrentSprite = assets.player.right.idle
+      if controls.right.held == 0 then playerCurrentSprite = assets.player.right.idle
       else
         playerCurrentSprite = assets.player.right.walk
         playerCurrentAnim = playerAnimations.right
       end
     end
     if player.direction == 2 then
-      if controls.up.held == 0 then
-        playerCurrentSprite = assets.player.up.idle
+      if controls.up.held == 0 then playerCurrentSprite = assets.player.up.idle
       else
         playerCurrentSprite = assets.player.up.walk
         playerCurrentAnim = playerAnimations.up
       end
     end
     if player.direction == 3 then
-      if controls.left.held == 0 then
-        playerCurrentSprite = assets.player.left.idle
+      if controls.left.held == 0 then playerCurrentSprite = assets.player.left.idle
       else
         playerCurrentSprite = assets.player.left.walk
         playerCurrentAnim = playerAnimations.left
@@ -269,6 +269,11 @@ function love.draw()
       player.isMoving = false
     end
   end
+
+  -- Draw fourth, fifth and sixth layer.
+  drawBlocks(4)
+  drawBlocks(5)
+  drawBlocks(6)
 
 	cam:detach()
 	-- Draw UI
