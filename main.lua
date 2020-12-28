@@ -215,9 +215,9 @@ function love.draw()
 	love.graphics.scale(ratio, ratio) -- GFX scaling
 
   -- Draw first, second and third layer of objects
-  drawBlocks(1)
-  drawBlocks(2)
-  drawBlocks(3)
+  for i=1, 3 do
+    drawBlocks(i)
+  end
 
   if player.visible == true then
     -- Draw player
@@ -271,9 +271,9 @@ function love.draw()
   end
 
   -- Draw fourth, fifth and sixth layer.
-  drawBlocks(4)
-  drawBlocks(5)
-  drawBlocks(6)
+  for i=4, 6 do
+    drawBlocks(i)
+  end
 
 	cam:detach()
 	-- Draw UI
