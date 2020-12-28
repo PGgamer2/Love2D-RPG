@@ -1,35 +1,8 @@
---- Useful functions for level creation.
+--- Level creation and management using bump.
 -- Some of the functions were inspired from <a href="https://love2d.org/forums/viewtopic.php?f=4&t=78729&p=173524#p173524">kikito</a>.
 
+world = bump.newWorld() -- create a world with bump
 blocks = {} -- In this table we store every object of the level except the player.
-
---- Check if table has value.
--- @param tab Table
--- @param val Value
--- @return Boolean.
-function hasValue(tab, val)
-    for i, value in ipairs(tab) do
-        if value == val then
-            return true
-        end
-    end
-    return false
-end
-
---- Crop images.
--- I'm using this instead of Love2D quads.
--- @param imgpath Path of the image
--- @param cropX X position where we'll start to crop the image (in pixels)
--- @param cropY Y position where we'll start to crop the image (in pixels)
--- @param cropWidth Width of the cropped image (in pixels)
--- @param cropHeight Height of the cropped image (in pixels)
--- @return Cropped image.
-function cropImage(imgpath, cropX, cropY, cropWidth, cropHeight)
-  local img = love.image.newImageData(imgpath)
-  local cropped = love.image.newImageData(cropWidth, cropHeight)
-  cropped:paste(img, 0, 0, cropX, cropY, cropWidth, cropHeight)
-  return love.graphics.newImage(cropped)
-end
 
 --- Add object to the current level.
 -- @param id The ID that we will use to search the object
@@ -148,18 +121,6 @@ function searchByID(id)
       return block
     end
   end
-end
-
---- Set player settings to the default ones.
--- The player will be: <ul><li>Able to move</li><li>Able to interact</li><li>Able to open the inventory</li><li>Able to open the menu</li><li>Visible</li></ul>
-function SetPlayerDefaultSettings()
-  player.MenuIsOpen = false
-  player.inventoryIsOpen = false
-  player.canMove = true
-  player.canInteract = true
-  player.canOpenInventory = true
-  player.canOpenMenu = true
-  player.visible = true
 end
 
 --- Load levels from lua files.

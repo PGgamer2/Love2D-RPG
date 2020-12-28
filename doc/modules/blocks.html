@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="../ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>ldoc</h1>
+
+<ul>
+  <li><a href="../index.html">Index</a></li>
+</ul>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="nowrap">
+  <li><strong>blocks</strong></li>
+  <li><a href="../modules/player.html">player</a></li>
+  <li><a href="../modules/ui.html">ui</a></li>
+  <li><a href="../modules/utilities.html">utilities</a></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>blocks</code></h1>
+<p>Level creation and management using bump.</p>
+<p>
+ Some of the functions were inspired from <a href="https://love2d.org/forums/viewtopic.php?f=4&t=78729&p=173524#p173524">kikito</a>.</p>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#addBlock">addBlock (id, x, y, w, h, drawable, layer, collidable, execOnInteract)</a></td>
+	<td class="summary">Add object to the current level.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#updateBlock">updateBlock (id, x, y, w, h, drawable, layer, collidable, execOnInteract)</a></td>
+	<td class="summary">Modify object by ID.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#moveBlock">moveBlock (id, goalx, goaly)</a></td>
+	<td class="summary">Move object by ID.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#removeBlock">removeBlock (id)</a></td>
+	<td class="summary">Remove object by ID.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#drawBlocks">drawBlocks (layer)</a></td>
+	<td class="summary">Draw every object of the level.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#searchByID">searchByID (id)</a></td>
+	<td class="summary">Search level object by ID.</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#LoadLevel">LoadLevel (lvl)</a></td>
+	<td class="summary">Load levels from lua files.</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2 class="section-header "><a name="Functions"></a>Functions</h2>
+
+    <dl class="function">
+    <dt>
+    <a name = "addBlock"></a>
+    <strong>addBlock (id, x, y, w, h, drawable, layer, collidable, execOnInteract)</strong>
+    </dt>
+    <dd>
+    Add object to the current level.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">id</span>
+         The ID that we will use to search the object
+        </li>
+        <li><span class="parameter">x</span>
+         X coordinates
+        </li>
+        <li><span class="parameter">y</span>
+         Y coordinates
+        </li>
+        <li><span class="parameter">w</span>
+         Width
+        </li>
+        <li><span class="parameter">h</span>
+         Height
+        </li>
+        <li><span class="parameter">drawable</span>
+         Sprite that will be used for the object
+        </li>
+        <li><span class="parameter">layer</span>
+         The layer where the object needs to be. The player is between the third and the fourth layer
+        </li>
+        <li><span class="parameter">collidable</span>
+         Collide with player (default: true)
+        </li>
+        <li><span class="parameter">execOnInteract</span>
+         Function to execute when player interacts with the object
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Object that has been created.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "updateBlock"></a>
+    <strong>updateBlock (id, x, y, w, h, drawable, layer, collidable, execOnInteract)</strong>
+    </dt>
+    <dd>
+    Modify object by ID.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">id</span>
+         The ID that we will use to search the object
+        </li>
+        <li><span class="parameter">x</span>
+         X coordinates
+        </li>
+        <li><span class="parameter">y</span>
+         Y coordinates
+        </li>
+        <li><span class="parameter">w</span>
+         Width
+        </li>
+        <li><span class="parameter">h</span>
+         Height
+        </li>
+        <li><span class="parameter">drawable</span>
+         Sprite that will be used for the object
+        </li>
+        <li><span class="parameter">layer</span>
+         The layer where the object needs to be. The player is between the third and the fourth layer
+        </li>
+        <li><span class="parameter">collidable</span>
+         Collide with player (default: true)
+        </li>
+        <li><span class="parameter">execOnInteract</span>
+         Function to execute when player interacts with the object
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "moveBlock"></a>
+    <strong>moveBlock (id, goalx, goaly)</strong>
+    </dt>
+    <dd>
+    Move object by ID.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">id</span>
+         The ID that we will use to search the object
+        </li>
+        <li><span class="parameter">goalx</span>
+         Target position in X coordinates
+        </li>
+        <li><span class="parameter">goaly</span>
+         Target position in Y coordinates
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+        <li>
+        New X value.</li>
+        <li>
+        New Y value.</li>
+        <li>
+        Objects that are colliding.</li>
+        <li>
+        Number of objects that collided.</li>
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "removeBlock"></a>
+    <strong>removeBlock (id)</strong>
+    </dt>
+    <dd>
+    Remove object by ID.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">id</span>
+         The ID that we will use to search the object
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "drawBlocks"></a>
+    <strong>drawBlocks (layer)</strong>
+    </dt>
+    <dd>
+    Draw every object of the level.
+ Put this inside love.draw()
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">layer</span>
+         The layer you want to draw. It will draw everything if the parameter is nil
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "searchByID"></a>
+    <strong>searchByID (id)</strong>
+    </dt>
+    <dd>
+    Search level object by ID.
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">id</span>
+         The ID used for the search
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        The object you were searching. Returns nil if the object doesn't exist.
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "LoadLevel"></a>
+    <strong>LoadLevel (lvl)</strong>
+    </dt>
+    <dd>
+    Load levels from lua files.
+ Inside the level file put a load() and an update(dt) function
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">lvl</span>
+         Lua file to load
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+        Level functions.
+    </ol>
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.6</a></i>
+<i style="float:right;">Last updated 2020-12-28 19:31:35 </i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>

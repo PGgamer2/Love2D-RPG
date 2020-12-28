@@ -11,6 +11,5 @@ Declare every asset you need inside `assets/resources.lua`.
 
 I'm using assets from [here](https://opengameart.org/content/castle-tiles-for-rpgs) for the objects (By Hyptosis, Zabin and Daniel Cook).
 
-`globalfunc.lua` has a lot of useful functions that can be used for level creation.
-You can find documentation about that file inside the `doc` directory.
-You can generate documentation for that file using [LDoc](https://github.com/lunarmodules/LDoc).
+You can find documentation about almost everything inside the `doc` directory.
+You can generate the documentation using [LDoc](https://github.com/lunarmodules/LDoc).
