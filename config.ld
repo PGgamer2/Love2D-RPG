@@ -1,4 +1,5 @@
-project = "Love2D RPG-Style game template"
-title = "Documentation - Love2D RPG game template"
+project = "Love2D RPG Game"
+title = "Documentation - Love2D RPG Game Template"
 description = "A simple role-playing game in Love2D"
-file = {"scripts"}
+file = "scripts"
+dir = "docs"

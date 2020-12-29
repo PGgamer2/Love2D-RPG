@@ -11,5 +11,5 @@ Declare every asset you need inside `assets/resources.lua`.
 
 I'm using assets from [here](https://opengameart.org/content/castle-tiles-for-rpgs) for the objects (By Hyptosis, Zabin and Daniel Cook).
 
-You can find documentation about almost everything inside the `doc` directory.
+You can find documentation about almost everything inside the `docs` directory.
 You can generate the documentation using [LDoc](https://github.com/lunarmodules/LDoc).
