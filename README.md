@@ -10,7 +10,7 @@ Used libraries:
 
 Declare every asset you need inside `assets/resources.lua`.
 
-I'm using assets from [here](https://opengameart.org/content/castle-tiles-for-rpgs) for the objects (By Hyptosis, Zabin and Daniel Cook).
+I'm using [these assets](https://opengameart.org/content/castle-tiles-for-rpgs) for the objects (By Hyptosis, Zabin and Daniel Cook).
 
 You can find documentation about almost everything inside the `docs` directory or at https://pggamer2.github.io/Love2D-RPG/.
 You can generate the documentation using [LDoc](https://github.com/lunarmodules/LDoc).
