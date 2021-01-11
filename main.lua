@@ -3,6 +3,7 @@ DEBUG = false
 
 -- Libraries init
 math = require "math"
+Timer = require "libs/timer"
 anim8 = require 'libs/anim8'
 Camera = require "libs/camera"
 require "catui"
@@ -47,6 +48,7 @@ function love.update(dt)
   local camdx, camdy = player.x + (player.w / 2) - cam.x, player.y + (player.h / 2) - cam.y
   cam:move(camdx / 2, camdy / 2)
 
+  Timer.update(dt)
   uimgr:update(dt)
 end
 
@@ -63,11 +65,12 @@ function love.keypressed(keypressed, scancode, isrepeat)
     UpdateUIposition()
   end
 
+  uimgr:keyDown(keypressed, scancode, isrepeat)
+  OpenUIonKeyPressed(keypressed)
+
 	playerKeyPressed(keypressed)
 
-	OpenUIonKeyPressed(keypressed)
-
-  uimgr:keyDown(keypressed, scancode, isrepeat)
+  player.finishedTalkingInThisUpdate = false
 end
 
 --- Detect key release

@@ -3,8 +3,9 @@
 -- Init player
 player = {x = 0, y = 0, w = 64, h = 64, goalX = 0, goalY = 0, cols = {}, len = 0,
           isMoving = false, direction = 0, axis = 0, vel = 3, visible = true,
-          canMove = true, canInteract = true, inventory = {},
-          MenuIsOpen = false, canOpenMenu = true,
+          canMove = true, canInteract = true,
+          inventory = {}, MenuIsOpen = false, canOpenMenu = true,
+          isTalking = false, dialogIsEnded = true, finishedTalkingInThisUpdate = false,
           canOpenInventory = true, inventoryIsOpen = false}
 
 playerAnimations = {up    = anim8.newAnimation(anim8.newGrid(64, 64, assets.player.up.walk:getWidth(),    assets.player.up.walk:getHeight())   ('1-8',1), 0.1),
