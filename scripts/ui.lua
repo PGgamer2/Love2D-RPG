@@ -161,7 +161,7 @@ function openDialog(text, t)
   end
 end
 
---- Finish the current dialog
+--- End the current dialog.
 -- @param text The text that will be displayed instead of the current one.
 function finishDialog(text)
   for _, cTimer in ipairs(labelTimers) do
