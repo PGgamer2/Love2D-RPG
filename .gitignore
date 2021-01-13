@@ -72,3 +72,15 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# Distribution files
+*.exe
+*.apk
+*.7z
+*.gz
+*.rar
+*.tar
+*.zip
+*.zipx
+*.tgz
+*.love

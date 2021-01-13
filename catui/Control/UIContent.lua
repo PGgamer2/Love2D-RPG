@@ -247,7 +247,7 @@ end
 -------------------------------------
 -- reset bar size & position
 -------------------------------------
-function UIControl:resetBar()
+function UIContent:resetBar()
     self.vBar:setSize(self.barSize, self:getHeight() - self.barSize)
     self.vBar:setPos(self:getWidth() - self.barSize, 0)
 
