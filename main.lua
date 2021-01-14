@@ -89,10 +89,11 @@ end
 function love.draw()
 	love.graphics.setColor(255, 255, 255)
 
-	cam:attach()
-	local ratio = math.min(love.graphics.getWidth() / 800, love.graphics.getHeight() / 600)
-	love.graphics.scale(ratio, ratio) -- GFX scaling
+  -- GFX scaling
+  local ratio = math.min(love.graphics.getWidth() / 800, love.graphics.getHeight() / 600)
+  cam:zoomTo(ratio)
 
+	cam:attach()
   -- Draw first, second and third layer of objects
   for i=1, 3 do
     drawBlocks(i)
