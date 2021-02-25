@@ -129,7 +129,7 @@ end
 -- @return Level functions.
 function LoadLevel(lvl)
   for i, block in ipairs(blocks) do
-    world:remove(block)
+    if block.collidable == true then world:remove(block) end
     blocks[i] = nil
   end
   local loadedlvl = require(lvl)

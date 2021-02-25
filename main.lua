@@ -68,18 +68,18 @@ function love.keypressed(keypressed, scancode, isrepeat)
   uimgr:keyDown(keypressed, scancode, isrepeat)
   OpenUIonKeyPressed(keypressed)
 
-	playerKeyPressed(keypressed)
+  playerKeyPressed(keypressed)
 
   player.finishedTalkingInThisUpdate = false
 end
 
 --- Detect key release
 function love.keyreleased(keyreleased)
-	-- Reset held counter when key is released
-	for _, button in pairs(controls) do
+  -- Reset held counter when key is released
+  for _, button in pairs(controls) do
     if hasValue(button.keys, keyreleased) then
-  		button.held = 0
-  	end
+      button.held = 0
+    end
   end
 
   uimgr:keyUp(keyreleased)
@@ -87,13 +87,13 @@ end
 
 --- Draw graphics
 function love.draw()
-	love.graphics.setColor(255, 255, 255)
+  love.graphics.setColor(255, 255, 255)
 
   -- GFX scaling
   local ratio = math.min(love.graphics.getWidth() / 800, love.graphics.getHeight() / 600)
   cam:zoomTo(ratio)
 
-	cam:attach()
+  cam:attach()
   -- Draw first, second and third layer of objects
   for i=1, 3 do
     drawBlocks(i)
@@ -106,7 +106,7 @@ function love.draw()
     drawBlocks(i)
   end
 
-	cam:detach()
+  cam:detach()
   -- Draw UI
   uimgr:draw()
 
@@ -115,25 +115,25 @@ function love.draw()
     love.graphics.print("X: " .. tostring(player.x), 0, 15)
     love.graphics.print("Y: " .. tostring(player.y), 0, 30)
     love.graphics.rectangle("fill", love.graphics.getWidth() / 2 - 2, 0, 4, love.graphics.getHeight())
-		love.graphics.rectangle("fill", 0, love.graphics.getHeight() / 2 - 2, love.graphics.getWidth(), 4)
+    love.graphics.rectangle("fill", 0, love.graphics.getHeight() / 2 - 2, love.graphics.getWidth(), 4)
   end
 
   -- Cap FPS at 60
   -- [https://love2d.org/wiki/love.timer.sleep#More_sophisticated_way_to_cap_30_FPS]
   local cur_time = love.timer.getTime()
-   if next_time <= cur_time then
-      next_time = cur_time
-      return
-   end
-   love.timer.sleep(next_time - cur_time)
+  if next_time <= cur_time then
+    next_time = cur_time
+    return
+  end
+  love.timer.sleep(next_time - cur_time)
 end
 
 function love.mousemoved(x, y, dx, dy)
-    uimgr:mouseMove(x, y, dx, dy)
+  uimgr:mouseMove(x, y, dx, dy)
 end
 
 function love.mousepressed(x, y, button, isTouch)
-    uimgr:mouseDown(x, y, button, isTouch)
+  uimgr:mouseDown(x, y, button, isTouch)
 end
 
 function love.mousereleased(x, y, button, isTouch)
