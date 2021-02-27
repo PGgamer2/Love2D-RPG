@@ -26,7 +26,7 @@ require "scripts/ui"
 currentlvl = LoadLevel("levels/main")
 
 --- Execute on start
-function love.load(arg)
+function love.load()
   min_dt = 1/60 -- FPS amount we want
   next_time = love.timer.getTime()
 

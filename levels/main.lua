@@ -1,3 +1,5 @@
+local lvlfn = {}
+
 function MoveBox(id)
   local box = searchByID(id)
   moveBlock(id, box.x, box.y + 10)
@@ -14,11 +16,7 @@ addBlock("woodenBox", -152, 300, 84, 90, assets.box, 1, true, MoveBox)
 addBlock("statueTop", 20, 300, 48, 126, assets.statue.top, 4, false)
 addBlock("statueBottom", 19, 426, 52, 38, assets.statue.bottom)
 
-local lvlfn = {}
-
-function lvlfn.load()
-  SetPlayerDefaultSettings()
-end
+SetPlayerDefaultSettings()
 
 function lvlfn.update(dt)
   -- Execute every frame

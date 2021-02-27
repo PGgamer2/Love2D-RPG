@@ -124,7 +124,7 @@ function searchByID(id)
 end
 
 --- Load levels from lua files.
--- Inside the level file put a load() and an update(dt) function
+-- In the level file return a table with an update(dt) function inside
 -- @param lvl Lua file to load
 -- @return Level functions.
 function LoadLevel(lvl)
@@ -133,6 +133,5 @@ function LoadLevel(lvl)
     blocks[i] = nil
   end
   local loadedlvl = require(lvl)
-  loadedlvl.load(arg)
   return loadedlvl
 end
